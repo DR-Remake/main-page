@@ -1,5 +1,0 @@
-name
-email
-password
-date of birth
-captcha

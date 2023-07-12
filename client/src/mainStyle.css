@@ -1,9 +1,49 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    background: gray;
+  background: gray;
+  overflow: hidden;
+  font-family: 'Acme';
+}
+
+#drr {
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.trans {
+  transition: all, 0.5s;
+}
+
+.combineW {
+  width: 100%;
+}
+
+.combineH {
+  height: 100%;
+}
+
+.jcac {
+  justify-content: center;
+  align-items: center;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.gradientText {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

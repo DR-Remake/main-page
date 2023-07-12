@@ -1,0 +1,128 @@
+.videoContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  content: "";
+}
+
+video {
+  min-width: 0;
+  min-height: 0;
+  left: auto;
+  top: auto;
+  z-index: -1;
+  -webkit-transform: none;
+  transform: none;
+  object-fit: cover;
+}
+
+.mainCenter {
+  justify-content: space-around;
+}
+
+.flagContainer {
+  height: 50%;
+  transform-origin: top;
+}
+
+.mainCenter .flagContainer:first-child {
+  animation: move 4s ease-in-out infinite;
+}
+.mainCenter .flagContainer:last-child {
+  animation: move 8s ease-in-out infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: rotateX(20deg);
+  }
+  50% {
+    transform: rotateX(35deg);
+  }
+  100% {
+    transform: rotateX(20deg);
+  }
+}
+
+.flagContainer img {
+  filter: drop-shadow(0 0 1vmin black);
+}
+
+.centerOne {
+  flex-direction: column;
+}
+
+.navBar,
+.some {
+  margin: 0 auto;
+}
+
+.big {
+  font-size: 3.5vmin !important;
+  color: #ffdf6d !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.navBar {
+  min-width: 45vw;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  outline: 2.55em solid #d88310;
+  background: linear-gradient(to top, rgb(85, 45, 12), rgba(111, 50, 0, 0.67));
+}
+
+.navBar p {
+  width: 100%;
+  text-align: center;
+  padding: 2vmin;
+  /* color: white; */
+  padding: 1em 2em;
+  letter-spacing: 0.1vw;
+  font-size: 2.2vmin;
+  font-weight: 600;
+  z-index: 1;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.text {
+  background: linear-gradient(#f1cd4a, #e40e03);
+}
+
+.navBar p:hover {
+  background: #f15044;
+  border-radius: 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.some {
+  width: 43vw;
+  background: linear-gradient(
+    to bottom,
+    rgb(85, 45, 12),
+    rgba(111, 50, 0, 0.67)
+  );
+  color: #c0a338;
+  font-size: 2.5em;
+  text-align: center;
+  line-height: 1.5em;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  animation: appear 3s 1;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  padding-bottom: 29%;
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 4%;
+  border: 1em solid #cb7600d9;
+  box-shadow: 0 0 2em white;
+  z-index: -1;
+  position: relative;
+  border-top: none;
+  border-image: linear-gradient(to bottom, #e48c11, rgba(0, 0, 0, 0)) 1 100%;
+}
