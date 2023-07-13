@@ -23,6 +23,7 @@ video {
 }
 
 .flagContainer {
+  width: 20vw;
   height: 50%;
   transform-origin: top;
 }
@@ -79,9 +80,9 @@ video {
   text-align: center;
   padding: 2vmin;
   /* color: white; */
-  padding: 1em 2em;
+  /* padding: 1em 2em; */
   letter-spacing: 0.1vw;
-  font-size: 2.2vmin;
+  font-size: 2.5vmin;
   font-weight: 600;
   z-index: 1;
   cursor: pointer;
@@ -101,6 +102,8 @@ video {
 
 .some {
   width: 43vw;
+  height: 70%;
+  flex-direction: column;
   background: linear-gradient(
     to bottom,
     rgb(85, 45, 12),
@@ -112,17 +115,18 @@ video {
   line-height: 1.5em;
   letter-spacing: 0.04em;
   font-weight: 600;
-  animation: appear 3s 1;
+  /* animation: appear 3s 1; */
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
-  padding-bottom: 29%;
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-top: 4%;
+  margin-top: 6vmin;
   border: 1em solid #cb7600d9;
   box-shadow: 0 0 2em white;
   z-index: -1;
   position: relative;
   border-top: none;
   border-image: linear-gradient(to bottom, #e48c11, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.some img {
+  height: 80%;
 }

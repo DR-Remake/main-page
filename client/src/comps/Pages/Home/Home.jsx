@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import drrFlag from "../../../assets/flagDRR.png";
 import drrVideo from "../../../assets/videoDRR.mp4";
+import drrLogo from "../../../assets/logoDRR.gif";
 import "./home.css";
 
 export default function Home() {
@@ -61,7 +62,10 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="some"></div>
+          <div className="some flex jcac">
+            <p>Dungeon Rampage Remake</p>
+          <img className="combineW" src={drrLogo} />
+          </div>
         </div>
         {flag}
       </div>
