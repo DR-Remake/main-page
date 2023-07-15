@@ -3,3 +3,49 @@
     padding: 0;
     margin: 0;
 }
+
+.LoginComp, .RegisterComp {
+    background-image: url('../../../assets/backgrounds/loginRegisterBG.jpg');
+    background-size: 100% 100%;
+}
+
+.square {
+    width: 70vw;
+    border: 3px solid white;
+    height: 80vh;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.square .title p {
+    padding: 2vmin;
+    padding-left: 8vmin;
+}
+
+.title {
+    height: 20%;
+}
+
+.registerForm {
+    height: 80%;
+    border: 3px solid gray;
+    overflow-x: scroll;
+}
+
+.registerForm .tab {
+    min-width: 100%;
+    padding: 2vmin;
+}
+
+.registerForm .tab p {
+    font-size: 2.5vmin;
+    padding: 2vmin;
+}
+
+.left {
+    width: 75%;
+}
+
+.right {
+    width: 25%;
+}
