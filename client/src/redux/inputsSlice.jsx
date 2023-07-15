@@ -3,9 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const inputsSlice = createSlice({
   name: "inputs",
   initialState: {
-    input1: "",
-    input2: "",
-    input3: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    date: ""
   },
   reducers: {
     setInputValue: (state, action) => {

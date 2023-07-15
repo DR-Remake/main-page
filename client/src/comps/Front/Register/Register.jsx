@@ -1,11 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setInputValue } from "../../../redux/inputsSlice";
+import axios from "axios";
 import "./regStyle.css";
 
 export default function Register() {
   const dispatch = useDispatch();
-  const { input1, input2, input3 } = useSelector((state) => state.inputs);
+
+  const [db, setDB] = useState({});
+
+  const [theInputs, setTheInputs] = useState([
+    {
+      name: "username",
+      defaultValue: "",
+    },
+    {
+      name: "email",
+      defaultValue: "",
+    },
+    {
+      name: "password",
+      defaultValue: "",
+    },
+    {
+      name: "confirmPassword",
+      defaultValue: "",
+    },
+    {
+      name: "date",
+      defaultValue: "",
+    },
+  ]);
+
+  useEffect(() => {
+    const getDB = async () => {
+      try {
+        const res = await axios
+          .get("http://localhost:5174/users/getUsers")
+          .then((res) => {
+            setDB(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getDB();
+  }, []);
 
   const handleInputChange = (inputName, e) => {
     const { value } = e.target;
@@ -18,21 +62,14 @@ export default function Register() {
         <p>Register</p>
       </div>
       <form>
-        <input
-          type="text"
-          value={input1}
-          onChange={(e) => handleInputChange("input1", e)}
-        />
-        <input
-          type="text"
-          value={input2}
-          onChange={(e) => handleInputChange("input2", e)}
-        />
-        <input
-          type="text"
-          value={input3}
-          onChange={(e) => handleInputChange("input3", e)}
-        />
+        {theInputs.map((input) => (
+          <input
+            key={input.name}
+            value={useSelector((state) => state.inputs[input.name])}
+            type="text"
+            onChange={(e) => handleInputChange(input.name, e)}
+          />
+        ))}
       </form>
     </div>
   );

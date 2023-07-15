@@ -23,17 +23,27 @@ video {
 }
 
 .flagContainer {
-  width: 20vw;
-  height: 50%;
+  width: 15vw;
+  gap: 2.5vmin;
+  height: 100%;
   transform-origin: top;
+  flex-direction: column;
 }
 
-.mainCenter .flagContainer:first-child {
+.flagContainer div {
+  flex: 1;
+}
+
+.flagContainer p {
+  flex: 1;
+}
+
+/* .mainCenter img {
   animation: move 4s ease-in-out infinite;
 }
 .mainCenter .flagContainer:last-child {
   animation: move 8s ease-in-out infinite;
-}
+} */
 
 @keyframes move {
   0% {
@@ -49,6 +59,7 @@ video {
 
 .flagContainer img {
   filter: drop-shadow(0 0 1vmin black);
+  height: 50%;
 }
 
 .centerOne {
@@ -65,6 +76,7 @@ video {
   color: #ffdf6d !important;
   position: relative;
   overflow: hidden;
+  cursor: default !important;
 }
 
 .navBar {
@@ -79,8 +91,6 @@ video {
   width: 100%;
   text-align: center;
   padding: 2vmin;
-  /* color: white; */
-  /* padding: 1em 2em; */
   letter-spacing: 0.1vw;
   font-size: 2.5vmin;
   font-weight: 600;
@@ -102,7 +112,7 @@ video {
 
 .some {
   width: 43vw;
-  height: 70%;
+  height: 75%;
   flex-direction: column;
   background: linear-gradient(
     to bottom,
@@ -110,23 +120,117 @@ video {
     rgba(111, 50, 0, 0.67)
   );
   color: #c0a338;
-  font-size: 2.5em;
+  font-size: 4.5vmin;
   text-align: center;
   line-height: 1.5em;
   letter-spacing: 0.04em;
   font-weight: 600;
-  /* animation: appear 3s 1; */
+  margin-top: 1vh;
+
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
-  margin-top: 6vmin;
   border: 1em solid #cb7600d9;
   box-shadow: 0 0 2em white;
   z-index: -1;
   position: relative;
   border-top: none;
+  gap: 5vmin;
   border-image: linear-gradient(to bottom, #e48c11, rgba(0, 0, 0, 0)) 1 100%;
 }
 
+.some p {
+  font-size: 4.5vmin;
+  animation: gradientMovement 5s infinite;
+  background: linear-gradient(to bottom, #f1cd4a, #4e3511, #ff6057);
+  filter: drop-shadow(0 0 1vmin black);
+  background-position: 0 0, 0 0, 0 0;
+  background-size: 300% 300%;
+}
+
+@keyframes gradientMovement {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  25% {
+    background-position: 50% 100%, 0 0, 100% 0;
+  }
+  50% {
+    background-position: 100% 0, 100% 0, 100% 0;
+  }
+  75% {
+    background-position: 0 0, 100% 0, 100% 100%;
+  }
+  100% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+}
+
 .some img {
-  height: 80%;
+  animation: boop 2s ease 1;
+  height: 45vh;
+}
+
+@keyframes boop {
+  from {
+    z-index: -1;
+    opacity: 0.2;
+    filter: brightness(3) blur(2em);
+    transform: translateY(-100%);
+    transition: all, 0.5s;
+  }
+  to {
+    z-index: -1;
+    opacity: 1;
+    filter: brightness(1) blur(0);
+    transform: translateY(0%) scale(1);
+    transition: all, 0.5s;
+  }
+}
+
+.itemMoving img {
+  width: 20vmin;
+  height: auto;
+  animation: upDown 3s linear infinite;
+}
+
+.mainCenter .flagContainer:first-child .itemMoving {
+  transform: scaleX(-1);
+}
+
+.appear {
+  opacity: 0.8;
+  filter: drop-shadow(0 0 1vmin black);
+}
+
+.no {
+  opacity: 0;
+}
+
+.navBar p img {
+  width: 100%;
+}
+
+.itemMoving::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 20vmin solid transparent;
+  border-right: 20vmin solid transparent;
+  border-bottom: 140vmin solid rgba(255, 255, 255, 0.281);
+  filter: blur(0.5vmin);
+  transform: rotate(50deg);
+  display: inline;
+  position: absolute;
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(-5%);
+  }
+  50% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(-5%);
+  }
 }

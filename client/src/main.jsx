@@ -7,6 +7,7 @@ import "./mainStyle.css";
 import NotFound from "./comps/Pages/NotFound.jsx";
 import { Provider } from "react-redux";
 import store from "./store.js";
+import Login from "./comps/Front/Login/Login.jsx";
 
 ReactDOM.createRoot(document.getElementById("drr")).render(
   <Provider store={store}>
@@ -15,8 +16,7 @@ ReactDOM.createRoot(document.getElementById("drr")).render(
         <Route path="/user/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/drr/home" element={<Home />} />
-
-        {/* <Route path="/user/login" element={<Login />} /> */}
+        <Route path="/user/login" element={<Login />} />
         {/* <Route path="/drr/home" element={<DRRHome />} />
       <Route path="/drr/shop" element={<DRRShop />} />
       <Route path="/drr/leaderboards" element={<DRRLeaderboards />} />

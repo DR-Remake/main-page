@@ -1,4 +1,4 @@
-name
+username
 email
 password
 date of birth

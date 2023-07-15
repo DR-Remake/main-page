@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import inputsSlice from './redux/inputsSlice.jsx'
+import inputsReducer from './redux/inputsSlice.jsx'
 
 const rootReducer = {
-  inputs: inputsSlice,
+  inputs: inputsReducer,
 };
 
 const store = configureStore({
