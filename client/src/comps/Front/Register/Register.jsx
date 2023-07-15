@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setInputValue } from "../../../redux/inputsSlice";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./regStyle.css";
 
-export default function Register() {
+export default function Register({ excludeInputs = [] }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [db, setDB] = useState({});
 
@@ -59,17 +61,20 @@ export default function Register() {
   return (
     <div className="RegisterComp">
       <div className="title">
-        <p>Register</p>
+        <p>{excludeInputs.length !== 0 ? 'Login' : 'Register'}</p>
       </div>
+      {/* <button onClick={() => navigate(excludeInputs !== 0 ? "/drr/home" : '')}>home</button> */}
       <form>
-        {theInputs.map((input) => (
-          <input
-            key={input.name}
-            value={useSelector((state) => state.inputs[input.name])}
-            type="text"
-            onChange={(e) => handleInputChange(input.name, e)}
-          />
-        ))}
+        {theInputs.map((input) =>
+          excludeInputs.includes(input.name) ? null : (
+            <input
+              key={input.name}
+              value={useSelector((state) => state.inputs[input.name])}
+              type="text"
+              onChange={(e) => handleInputChange(input.name, e)}
+            />
+          )
+        )}
       </form>
     </div>
   );
