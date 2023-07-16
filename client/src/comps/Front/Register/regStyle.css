@@ -1,51 +1,120 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.LoginComp, .RegisterComp {
-    background-image: url('../../../assets/backgrounds/loginRegisterBG.jpg');
-    background-size: 100% 100%;
+.LoginComp,
+.RegisterComp {
+  background-image: url("../../../assets/backgrounds/loginRegisterBG.jpg");
+  background-size: 100% 100%;
 }
 
 .square {
-    width: 70vw;
-    border: 3px solid white;
-    height: 80vh;
-    margin: auto;
-    border-radius: 15px;
+  width: 70vw;
+  border: 3px solid white;
+  height: 80vh;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
-.square .title p {
-    padding: 2vmin;
-    padding-left: 8vmin;
+.square .topPart p {
+  padding: 2vmin;
+  padding-left: 8vmin;
+  flex: 1;
+  letter-spacing: 0.1vw;
 }
 
-.title {
-    height: 20%;
+.topPart {
+  height: 20%;
+  background: linear-gradient(55deg, #4b3829b5, #795b44a1, #886a51);
+  gap: 5vmin;
+  padding: 2vmin;
 }
 
 .registerForm {
-    height: 80%;
-    border: 3px solid gray;
-    overflow-x: scroll;
+  height: 80%;
+  border: 3px solid gray;
+  overflow-x: scroll;
+}
+
+.already,
+.topPart button {
+  width: 13vw;
+  height: 50%;
+  margin: auto;
+  background-color: transparent;
+  flex-direction: column;
+  border: initial;
+  border-radius: 15px;
+  flex-direction: row;
+  gap: 2.5vmin;
+  cursor: pointer;
+}
+
+.topPart svg {
+    font-size: 4vmin;
+    color: #ca6010;
+}
+
+.topPart button {
+  /* text-shadow: 0 0 1vmin gray; */
+  font-size: 2.5vmin !important;
+  font-weight: bolder;
+  background: linear-gradient(
+    to bottom,
+    rgb(85, 45, 12),
+    rgba(111, 50, 0, 0.67)
+  );
+  letter-spacing: 0.1vw;
+}
+
+.tab {
+    background: #221c16c7;
+}
+
+.blackBG {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, black 20%, black 60%, black 70%);
+    border-radius: 15px;
+    filter: drop-shadow(0 0 1vmin rgb(15, 14, 14));
+}
+
+.topPart button:nth-child(2) {
+  border-left: .8vmin solid rgb(146, 86, 37);
+  border-bottom: .8vmin solid rgb(92, 55, 25);
+  box-shadow: -1vmin 1vmin .6vmin rgba(0, 0, 0, 0.699);
+}
+.topPart button:nth-child(3) {
+  border-right: .8vmin solid rgb(146, 86, 37);
+  border-top: .8vmin solid rgb(92, 55, 25);
+  box-shadow: 1vmin -1vmin .6vmin rgba(0, 0, 0, 0.699);;
+}
+
+.topPart button:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 1vmin black !important;
 }
 
 .registerForm .tab {
-    min-width: 100%;
-    padding: 2vmin;
+  min-width: 100%;
+  padding: 2vmin;
 }
 
 .registerForm .tab p {
-    font-size: 2.5vmin;
-    padding: 2vmin;
+  font-size: 2.5vmin;
+  padding: 2vmin;
 }
 
 .left {
-    width: 75%;
+  width: 75%;
 }
 
 .right {
-    width: 25%;
+  width: 25%;
+}
+
+.eyes {
+    padding-left: 2vmin;
+    gap: 1.5vmin;
 }

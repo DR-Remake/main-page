@@ -138,7 +138,7 @@ video {
   border-image: linear-gradient(to bottom, #e48c11, rgba(0, 0, 0, 0)) 1 100%;
 }
 
-.some p, .square .title p  {
+.some p, .square .topPart p, .topPart button  {
   font-size: 4.5vmin;
   animation: gradientMovement 5s infinite;
   background: linear-gradient(to bottom, #f1cd4a, #4e3511, #ff6057);

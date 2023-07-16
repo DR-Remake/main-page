@@ -4,6 +4,9 @@ import { setInputValue } from "../../../redux/inputsSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./regStyle.css";
+import { AiOutlineHome } from 'react-icons/ai';
+import { FiLogIn } from 'react-icons/fi';
+
 
 export default function Register({ excludeInputs = [] }) {
   const dispatch = useDispatch();
@@ -61,19 +64,24 @@ export default function Register({ excludeInputs = [] }) {
   return (
     <div className="RegisterComp combineW combineH flex jcac">
       <div className="square">
-        <div className="title flex">
-          <p className="gradientText">
-            {excludeInputs.length !== 0 ? "Login" : "Register"}
+        <div className="topPart flex">
+          <p className="gradientText flex jcac">
+            {excludeInputs.length !== 0 ? "Login" : "Registration"}
           </p>
           {excludeInputs.length === 0 ? (
             <>
-              <h3>Already a rampager?</h3>
-              <button onClick={() => navigate("/user/login")}>Login</button>
+              {/* <h4>Already a rampager?</h4> */}
+              <button
+                className="flex jcac combineW combineH trans gradientText"
+                onClick={() => navigate("/user/login")}
+              >
+                <FiLogIn/>Login
+              </button>
             </>
           ) : (
-            <button onClick={() => navigate("/user/register")}>Register</button>
+            <button className="flex jcac trans gradientText" onClick={() => navigate("/user/register")}>Registeration</button>
           )}
-          <button onClick={() => navigate("/drr/home")}>home</button>
+          <button className="flex jcac trans gradientText" onClick={() => navigate("/drr/home")}><AiOutlineHome/>home</button>
         </div>
         <form className="registerForm flex">
           {theInputs.map((input, index) =>
@@ -93,7 +101,9 @@ export default function Register({ excludeInputs = [] }) {
                       <p>Suddenly, a blurry dark creature arrives near you.</p>
                       <p>
                         As they get closer, a windy voice reaches your mind ~{" "}
-                        <span>Who is this brave soul that violated my peace?</span>
+                        <span>
+                          Who is this brave soul that violated my peace?
+                        </span>
                       </p>
                       <input
                         key={input.name}
@@ -105,8 +115,11 @@ export default function Register({ excludeInputs = [] }) {
                     </>
                   )}
                 </div>
-                <div className="right">
-                  <p>right</p>
+                <div className="right blackBG trans">
+                  <div className="eyes">
+                    <p></p>
+                    <p></p>
+                  </div>
                 </div>
               </div>
             )
