@@ -7,7 +7,7 @@
 body {
   background: gray;
   overflow: hidden;
-  font-family: 'Acme';
+  font-family: "Acme";
 }
 
 #drr {
@@ -43,7 +43,33 @@ body {
   position: relative;
 }
 
+.bRadius {
+  border-radius: 15px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
 .gradientText {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientMovement {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  25% {
+    background-position: 50% 100%, 0 0, 100% 0;
+  }
+  50% {
+    background-position: 100% 0, 100% 0, 100% 0;
+  }
+  75% {
+    background-position: 0 0, 100% 0, 100% 100%;
+  }
+  100% {
+    background-position: 0 0, 0 0, 0 0;
+  }
 }

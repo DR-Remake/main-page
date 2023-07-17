@@ -147,24 +147,6 @@ video {
   background-size: 300% 300%;
 }
 
-@keyframes gradientMovement {
-  0% {
-    background-position: 0 0, 0 0, 0 0;
-  }
-  25% {
-    background-position: 50% 100%, 0 0, 100% 0;
-  }
-  50% {
-    background-position: 100% 0, 100% 0, 100% 0;
-  }
-  75% {
-    background-position: 0 0, 100% 0, 100% 100%;
-  }
-  100% {
-    background-position: 0 0, 0 0, 0 0;
-  }
-}
-
 .some img {
   animation: boop 2s ease 1;
   height: 45vh;

@@ -4,7 +4,7 @@ import Register from "../Register/Register";
 export default function Login() {
   return (
     <div className="LoginComp combineW combineH">
-      <Register excludeInputs={["username", "confirmPassword", "date"]} />
+      <Register excludeInputs={["Username", "confirmPassword", "Date"]} />
     </div>
   );
 }
