@@ -56,7 +56,6 @@
 }
 
 .topPart button {
-  /* text-shadow: 0 0 1vmin gray; */
   font-size: 2.5vmin !important;
   font-weight: bolder;
   background: linear-gradient(
@@ -74,11 +73,12 @@
 .blackBG {
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0) 5%,
+    rgba(0, 0, 0, 0.47) 5%,
     black 20%,
     black 60%,
-    rgba(0, 0, 0, 0) 105%
+    rgba(0, 0, 0, 0.42) 105%
   );
+  overflow: hidden;
   filter: drop-shadow(0 0 1vmin rgb(15, 14, 14));
 }
 
@@ -131,7 +131,8 @@
   width: 25%;
 }
 
-.tab:first-child .eyes {
+.tab:first-child .eyes,
+.tab:nth-child(2) .running {
   padding-left: 2vmin;
   gap: 1.5vmin;
 }
@@ -163,9 +164,109 @@
     opacity: 0.6;
   }
 }
+.tab:nth-child(2) .running,
+.tab:nth-child(3) .house {
+  flex-direction: column;
+}
 
-.tab:nth-child(2) {
+.tab:nth-child(2) .running p,
+.tab:nth-child(3) .house p {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.panic {
+  animation: panic 0.35s ease-in-out infinite;
+}
+
+@keyframes panic {
+  0% {
+    transform: translate(2vmin, 0);
+    filter: drop-shadow(0 2vmin 1vmin black);
+  }
+  50% {
+    transform: translate(0vmin, 1vmin);
+    filter: drop-shadow(-2vmin -5vmin 1vmin rgba(0, 0, 0, 0.479));
+  }
+  100% {
+    transform: translate(2vmin, 0);
+    filter: drop-shadow(0 2vmin 1vmin black);
+  }
+}
+
+.tab:nth-child(2) .running p:first-child,
+.tab:nth-child(3) .house p:first-child {
+  opacity: 0.3;
+  font-size: 8.5vmin;
+  transform-origin: bottom;
+}
+
+.tab:nth-child(2) .running p:first-child {
+  animation: beat 0.4s ease-in-out infinite;
+}
+.tab:nth-child(3) .house p:first-child {
+  height: 100%;
+}
+
+@keyframes beat {
+  0% {
+    color: rgba(155, 154, 154, 0.514);
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(0.5);
+    color: rgba(255, 0, 0, 0.514);
+    opacity: 0;
+  }
+  100% {
+    color: rgba(155, 154, 154, 0.514);
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+.tab:nth-child(3) .house p {
+  width: 70%;
+  overflow: hidden;
+}
+
+.tab:nth-child(3) .house p svg {
+  transform: scale(2);
+  z-index: -4;
+  color: rgba(255, 255, 255, 0.336);
+  animation: gettingCloser 2.8s ease infinite;
+}
+
+@keyframes gettingCloser {
+  0% {
+    transform: translate(0vmin, 1vmin) scale(1);
+    filter: blur(0.7vmin);
+  }
+  25% {
+    transform: translate(0vmin, -5.5vmin) scale(1.5);
+    filter: blur(0.5vmin);
+  }
+  50% {
+    transform: translate(0vmin, 1vmin) scale(2);
+    filter: blur(0.3vmin);
+  }
+  75% {
+    transform: translate(0vmin, -5.5vmin) scale(2.5);
+    filter: blur(0.2vmin);
+  }
+  100% {
+    transform: translate(0vmin, 1vmin) scale(3);
+    filter: blur(0);
+  }
+  /* from {
+    transform: translate(0vmin, 1vmin) scale(1);
+  }
+  to {
+    transform: translate(0vmin, 5vmin) scale(5);
+  } */
 }
 
 .left p {

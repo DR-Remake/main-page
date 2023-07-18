@@ -9,8 +9,11 @@ import {
   AiOutlineHome,
   AiOutlineArrowLeft,
   AiOutlineArrowRight,
+  AiFillHeart,
 } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
+import { GiFamilyHouse } from "react-icons/gi";
+
 
 export default function Register({ excludeInputs = [] }) {
   const dispatch = useDispatch();
@@ -44,12 +47,51 @@ export default function Register({ excludeInputs = [] }) {
         Chapter 2 | <span>Email</span>
       </h1>
       <p>Without any hesitation, you decided running.</p>
-      <p>You could feel the thrilling that surrounded your body.</p>
+      <p>You could feel the thrilling that surroundes your body.</p>
       <p>As it becomes less dark, you notice a weird address on your hand.</p>
       <p className="user">- Was it always there?</p>
       <p className="user">I can't remember. Let me try reading it...</p>
     </>
   );
+
+  const thirdText = (
+    <>
+      <h1>
+        Chapter 3 | <span>Password</span>
+      </h1>
+      <p>As you keep on running, you feel your breath running out.</p>
+      <p className="user">- I can see a building ahead of me.</p>
+      <p className="user">It's my only chance, I must hide there.</p>
+      <p>As you get more close to the door, things don't seem on your side...</p>
+      <p className="user">- Crap! It is protected with a long combination lock!</p>
+      <p className="user">There must be any clues... Aha! a paper.</p>
+    </>
+  );
+
+  const fourthText = (
+    <>
+       <h1>
+         Chapter 4 | <span>Confirm Password</span>
+       </h1>
+        <p className="user">- I think it's working!</p>
+        <p className="user">Just placing the last digit...</p>
+        <p className="user">and.. LET'S G-Nothing? really...?</p>
+        <p className="user">Let me try again just to make sure...</p>
+     </>
+  )
+
+  const fifthText = (
+    <>
+    <h1>
+      Chapter 5 | <span>Date of birth</span>
+    </h1>
+    <p className="user">- I think I'm finally -</p>
+    <p className="evil">- Finally? finally what?</p>
+    <p className="evil">You made your worst mistake.</p>
+    <p className="evil">Are you even old enough to fight me?</p>
+    <p className="user">- (TO FIGHT YOU???) Yes I am.</p>
+  </>
+  )
 
   const formRef = useRef(null);
 
@@ -69,7 +111,7 @@ export default function Register({ excludeInputs = [] }) {
       defaultValue: "",
     },
     {
-      name: "confirmPassword",
+      name: "ConfirmPassword",
       defaultValue: "",
     },
     {
@@ -179,28 +221,83 @@ export default function Register({ excludeInputs = [] }) {
                         />
                       </div>
                     </>
-                  ) : (
+                  ) : index === 1 ? (
                     <>
-                    {secondText}
-                    <div className="myName combineW flex jcac">
-                      <p className="user">It says</p>
-                      <input
-                        className="trans bRadius"
-                        key={input.name}
-                        placeholder={`Your ${input.name}...`}
-                        value={useSelector(
-                          (state) => state.inputs[input.name]
-                        )}
-                        type="text"
-                        onChange={(e) => handleInputChange(input.name, e)}
-                      />
-                    </div>
-                  </>
-                  )}
+                      {secondText}
+                      <div className="myName combineW flex jcac">
+                        <p className="user">It says</p>
+                        <input
+                          className="trans bRadius"
+                          key={input.name}
+                          placeholder={`Your ${input.name}...`}
+                          value={useSelector(
+                            (state) => state.inputs[input.name]
+                          )}
+                          type="text"
+                          onChange={(e) => handleInputChange(input.name, e)}
+                        />
+                      </div>
+                    </>
+                  ) : index === 2 ? (
+                    <>
+                      {thirdText}
+                      <div className="myName combineW flex jcac">
+                        <p>"To open the door, place</p>
+                        <input
+                          className="trans bRadius"
+                          key={input.name}
+                          placeholder={`Your ${input.name}...`}
+                          value={useSelector(
+                            (state) => state.inputs[input.name]
+                          )}
+                          type="text"
+                          onChange={(e) => handleInputChange(input.name, e)}
+                        />
+                        <p>"</p>
+                      </div>
+                    </>
+                  ) : index === 3 ? (
+                    <>
+                      {fourthText}
+                      <div className="myName combineW flex jcac">
+                        <input
+                          className="trans bRadius"
+                          key={input.name}
+                          placeholder={`${input.name.replace('m', 'm ')}...`}
+                          value={useSelector(
+                            (state) => state.inputs[input.name]
+                          )}
+                          type="text"
+                          onChange={(e) => handleInputChange(input.name, e)}
+                        />
+                      </div>
+                    </>
+                  ) : index === 4 ? (
+                    <>
+                      {fifthText}
+                      <div className="myName combineW flex jcac">
+                        <p className="user">My date is</p>
+                        <input
+                          className="trans bRadius"
+                          key={input.name}
+                          placeholder={`Your ${input.name} of Birth...`}
+                          value={useSelector(
+                            (state) => state.inputs[input.name]
+                          )}
+                          type="date"
+                          onChange={(e) => handleInputChange(input.name, e)}
+                        />
+                      </div>
+                    </>
+                  ) : ''}
                 </div>
-                <div className="right blackBG trans bRadius">
-                  <div className={`flex jcac combineH ${index === 0 ? 'eyes' : 'running'}`}>
-                    <p className="trans"></p>
+                <div className={`right blackBG trans bRadius ${index === 1 && 'panic'}`}>
+                  <div
+                    className={`flex jcac combineH ${
+                      index === 0 ? "eyes" : index === 1 ? "running" : 'house flex jcac'
+                    }`}
+                  >
+                    <p className="trans">{index === 1 ? <AiFillHeart /> : index === 2 ? <GiFamilyHouse/> : ''}</p>
                     <p className="trans"></p>
                   </div>
                 </div>

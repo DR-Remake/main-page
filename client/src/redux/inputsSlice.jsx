@@ -6,7 +6,7 @@ const inputsSlice = createSlice({
     Username: "",
     Email: "",
     Password: "",
-    confirmPassword: "",
+    ConfirmPassword: "",
     Date: ""
   },
   reducers: {
