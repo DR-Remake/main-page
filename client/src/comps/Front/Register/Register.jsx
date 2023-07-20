@@ -63,7 +63,7 @@ export default function Register({ excludeInputs = [] }) {
       <p className="user">- I can see a building ahead of me.</p>
       <p className="user">It's my only chance, I must hide there.</p>
       <p>As you get more close to the door, things don't seem on your side...</p>
-      <p className="user">- Crap! It is protected with a long combination lock!</p>
+      <p className="user">- Crap! It is protected with a combination lock!</p>
       <p className="user">There must be any clues... Aha! a paper.</p>
     </>
   );
