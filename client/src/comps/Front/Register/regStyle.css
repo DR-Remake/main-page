@@ -165,8 +165,28 @@
   }
 }
 .tab:nth-child(2) .running,
-.tab:nth-child(3) .house {
+.tab:nth-child(3) .house,
+.tab:nth-child(4) .checkAgain {
   flex-direction: column;
+}
+
+.tab:nth-child(4) .checkAgain {
+  position: relative;
+}
+
+.tab:nth-child(4) .checkAgain p:nth-child(1) {
+  width: 80%;
+  color: #a69d9d8c;
+  border: .5vmin dashed rgba(255, 255, 255, 0.103);
+}
+
+.tab:nth-child(4) .checkAgain p:nth-child(1)::before {
+  content: 'X X X ???';
+  width: 100%;
+  letter-spacing: .5vw;
+  color: #ff000091;
+  text-align: center;
+
 }
 
 .tab:nth-child(2) .running p,
@@ -261,12 +281,6 @@
     transform: translate(0vmin, 1vmin) scale(3);
     filter: blur(0);
   }
-  /* from {
-    transform: translate(0vmin, 1vmin) scale(1);
-  }
-  to {
-    transform: translate(0vmin, 5vmin) scale(5);
-  } */
 }
 
 .left p {
