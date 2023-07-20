@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./regStyle.css";
 import "../../../mainStyle.css";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   AiOutlineHome,
   AiOutlineArrowLeft,
@@ -18,7 +19,7 @@ import { GiFamilyHouse } from "react-icons/gi";
 export default function Register({ excludeInputs = [] }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const siteKey = import.meta.env.CAPTCHAKEY;
   const [requiredWidth, setRequiredWidth] = useState(0);
 
   const firstText = (
@@ -75,8 +76,8 @@ export default function Register({ excludeInputs = [] }) {
        </h1>
         <p className="user">- I think it's working!</p>
         <p className="user">Just placing the last digit...</p>
-        <p className="user">and.. LET'S G-Nothing? really...?</p>
-        <p className="user">Let me try again just to make sure...</p>
+        <p className="user">and.. LET'S G-nothing? really?</p>
+        <p className="user">No no NO it has to work!!!</p>
      </>
   )
 
@@ -89,9 +90,9 @@ export default function Register({ excludeInputs = [] }) {
     <p className="evil">- Finally? finally what?</p>
     <p className="evil">You made your worst mistake.</p>
     <p className="evil">Are you even old enough to fight me?</p>
-    <p className="user">- (TO FIGHT YOU???) Yes I am.</p>
+    <p className="user">- (fight?!?) Yes I am.</p>
   </>
-  )
+  );
 
   const formRef = useRef(null);
 
@@ -287,6 +288,7 @@ export default function Register({ excludeInputs = [] }) {
                           type="date"
                           onChange={(e) => handleInputChange(input.name, e)}
                         />
+                          <ReCAPTCHA sitekey={siteKey} />
                       </div>
                     </>
                   ) : ''}
@@ -294,10 +296,10 @@ export default function Register({ excludeInputs = [] }) {
                 <div className={`right blackBG trans bRadius ${index === 1 && 'panic'}`}>
                   <div
                     className={`flex jcac combineH ${
-                      index === 0 ? "eyes" : index === 1 ? "running" : 'house flex jcac'
-                    }`}
+                      index === 0 ? "eyes" : index === 1 ? "running" : index === 2 ? 'house'
+                    : "checkAgain shake"}`}
                   >
-                    <p className="trans">{index === 1 ? <AiFillHeart /> : index === 2 ? <GiFamilyHouse/> : ''}</p>
+                    <p className="trans flex jcac bRadius">{index === 1 ? <AiFillHeart /> : index === 2 ? <GiFamilyHouse/> : ''}</p>
                     <p className="trans"></p>
                   </div>
                 </div>
