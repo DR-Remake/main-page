@@ -28,10 +28,12 @@ export default function Register({ excludeInputs = [] }) {
   const {
     VITE_SERVER_PORT,
     VITE_VERIFY,
+    VITE_ADMIN,
     VITE_USERS,
     VITE_USER_POSTUSER,
     VITE_CAPTCHA,
     VITE_USER_CHECKUSERNAME,
+    VITE_REAL_SITE_KEY,
   } = import.meta.env;
 
   const dispatch = useDispatch();
@@ -40,50 +42,59 @@ export default function Register({ excludeInputs = [] }) {
   const [currentPage, setCurrentPage] = useState(0);
 
   const [changeText, setChangeText] = useState("");
-
   //reCAPTCHA
-  const siteKey = import.meta.env.VITE_SITE_KEY;
   useEffect(() => {
     const loadRecaptcha = async () => {
-      await new Promise((resolve) => {
-        const script = document.createElement("script");
-        script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
-        script.async = true;
-        script.defer = true;
-        script.onload = resolve;
-        document.body.appendChild(script);
-      });
+      const script = document.createElement("script");
+      script.src = `https://www.google.com/recaptcha/api.js?render=${VITE_REAL_SITE_KEY}`;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
     };
     loadRecaptcha();
-  }, [siteKey]);
+  }, []);
 
-  const handleRecaptchaSuccess = async (token) => {
-    const res = await postRequest(
-      `${VITE_SERVER_PORT}/${VITE_VERIFY}/${VITE_CAPTCHA}`,
-      true
-    );
-    if (res.data.success) {
-      setAccessSend(true);
-      Toaster("success", "reCAPTCHA verification successful");
-    } else {
-      Toaster("error", "reCAPTCHA verification failed");
+  const handleRecaptchaSuccess = async () => {
+    try {
+      const token = await new Promise((resolve) => {
+        grecaptcha.ready(() => {
+          grecaptcha
+            .execute(VITE_REAL_SITE_KEY, { action: "submit" })
+            .then(resolve);
+        });
+      });
+
+      const res = await axios.post("http://localhost:5174/verify/captcha", {
+        token: token,
+      });
+
+      if (res.data.success) {
+        setAccessSend(true);
+        Toaster("success", "reCAPTCHA verification successful");
+      } else {
+        Toaster("error", "reCAPTCHA verification failed");
+      }
+    } catch (err) {
+      console.error(err);
+      Toaster("error", "An error occurred during verification");
     }
   };
 
   const [stringValue, setStringValue] = useState("");
   const [accessSend, setAccessSend] = useState(true);
 
-  const handleRecaptchaError = () => {
-    Toaster("error", "reCAPTCHA error");
-  };
-
+  // const handleRecaptchaError = () => {
+  //   Toaster("error", "reCAPTCHA error");
+  // };
   const executeRecaptcha = (e) => {
     e.preventDefault();
     window.grecaptcha.ready(() => {
       window.grecaptcha
-        .execute(siteKey, { action: "submit" })
+        .execute(VITE_REAL_SITE_KEY, { action: "submit" })
         .then(handleRecaptchaSuccess)
-        .catch(handleRecaptchaError);
+        .catch((err) => {
+          console.log(err);
+        });
     });
   };
   //reCAPTCHA
@@ -273,7 +284,7 @@ export default function Register({ excludeInputs = [] }) {
     const checkUsername = async () => {
       try {
         const res = await postRequest(
-          `${VITE_SERVER_PORT}/${VITE_ADMIN}/${VITE_ADMIN_POSTADMINNOPASS}`,
+          `${VITE_SERVER_PORT}/${VITE_USERS}/${VITE_USER_CHECKUSERNAME}`,
           true,
           { Username: theInputs[0].defaultValue }
         );
