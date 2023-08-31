@@ -1,0 +1,9 @@
+@use '../../../Dialogs/CardDisplayer/CardDisplayer.scss';
+
+.topNavAdmin {
+    justify-content: space-between;
+    padding: 2vmin;
+    @include CardDisplayer.font(2vmin);
+    @include CardDisplayer.shadow;
+    
+}

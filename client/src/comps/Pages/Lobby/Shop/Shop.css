@@ -1,0 +1,334 @@
+.Shop,
+.category {
+  box-shadow: 0 0 1vmin black;
+  margin: 0;
+}
+
+.Shop {
+  flex-direction: column;
+}
+
+.topArea {
+  height: 10vh;
+  background: linear-gradient(#927817d9, #45270b6e, #5f30007d);
+  box-shadow: 0 0 1vmin #d179207d;
+  overflow: hidden;
+}
+
+.eachOne {
+  font-size: 2.5vmin;
+  padding: 2vmin;
+  background: linear-gradient(#00000021, #754112, #5f30007d);
+  background-position: 0 0, 0 0, 0 0;
+  background-size: 300% 300%;
+  animation: gradientMovement 5s infinite;
+  gap: 2vmin;
+  align-items: center;
+  text-align: center;
+  text-shadow: 0 0 1vmin black;
+}
+
+.eachOne:first-child {
+  justify-content: space-evenly;
+}
+
+.eachOne:first-child p svg {
+  animation: wave 1.5s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+.eachOne p {
+  color: #e4a763;
+  filter: drop-shadow(0 0 1vmin black);
+}
+
+.eachOne:not(:first-child) {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 4vmin;
+}
+
+.eachOne:not(:first-child):hover {
+  background-color: #c9a72dc4;
+}
+
+.content {
+  background-image: url("../../../../assets/backgrounds/shopBG.jpg");
+  height: 90%;
+  box-shadow: 0 0 1vmin black;
+  flex-direction: column;
+}
+
+.carousel {
+  height: 85%;
+  gap: 5vmin;
+  overflow: hidden;
+  direction: ltr;
+}
+
+.whiteBackground {
+  border-radius: 15px;
+}
+
+.dissapear {
+  opacity: 0;
+}
+
+.card {
+  position: relative;
+  min-width: 20vw !important;
+  min-height: 40vh;
+  opacity: 0.9 !important;
+  z-index: 1;
+  padding: 0 2vmin;
+  border-top-left-radius: 25%;
+  border-top-right-radius: 25%;
+}
+
+.card:hover {
+  /* background-color: rgba(0, 0, 0, 0.63); */
+  transform: scale(1.15);
+  box-shadow: inset 0 0 12vmin black;
+  /* filter: drop-shadow(0 0 4vmin black); */
+  transition: scale, 0.5s;
+  z-index: 2;
+  animation: upDown 2s linear infinite;
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0) scale(1.15);
+  }
+  50% {
+    transform: translateY(-4vmin) scale(1.2);
+  }
+  100% {
+    transform: translateY(0) scale(1.15);
+  }
+}
+
+.card:hover::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 12vmin solid #c9a72d;
+  border-top: 12vmin solid #754112;
+  border-bottom: 12vmin solid #754112;
+  filter: blur(2vmin);
+  animation: spin 1.5s linear infinite;
+  border-radius: 50%;
+  top: 10%;
+  background-image: url("../../../../assets/portalDRR.gif");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(80deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(80deg) rotateZ(360deg);
+  }
+}
+
+.card p:first-child {
+  box-shadow: 0 0 1vmin black;
+}
+
+.shopTitle {
+  height: 15%;
+  font-size: 6vmin;
+  font-weight: bold;
+  letter-spacing: 0.8vw;
+  text-transform: uppercase;
+  text-shadow: 0 0 1vmin #000;
+  color: rgb(167, 134, 14);
+  background: linear-gradient(to left, transparent, #2e1700d4, transparent)
+      center,
+    url("/src/assets/placeholderTitle.png") center;
+  background-size: 50% 100%;
+  animation: fly 2s ease-in-out infinite;
+  background-color: rgba(0, 0, 0, 0.432);
+  filter: drop-shadow(0 0 1vmin #610e05);
+}
+
+@keyframes fly {
+  0% {
+    transform: translateY(1vw) rotateX(35deg);
+  }
+  50% {
+    transform: translateY(2vw) rotateX(35deg);
+  }
+  100% {
+    transform: translateY(1vw) rotateX(35deg);
+  }
+}
+
+.Berserker,
+.Ranger,
+.Sorcerer,
+.Cheff,
+.arkala,
+.Shufis {
+  width: 80%;
+  box-shadow: 0 0 1vmin brown;
+}
+
+.none {
+  opacity: 0;
+}
+
+.Berserker:hover,
+.Ranger:hover,
+.Sorcerer:hover,
+.Cheff:hover,
+.arkala:hover,
+.Shufis:hover {
+  transform: scale(0.9);
+}
+
+.arkala {
+  background-color: rgb(10, 73, 16);
+}
+.Shufis {
+  background-color: rgb(53, 49, 45);
+}
+
+.options {
+  width: 70%;
+}
+
+.options button {
+  width: 100%;
+  /* background: transparent; */
+  color: #c9a72d;
+  border: initial;
+  box-shadow: 0 0 1vmin black;
+  padding: 2vmin 6vmin;
+  font-weight: bolder;
+  /* background: linear-gradient(rgb(117, 11, 11), white, red); */
+  font-size: 2.5vmin;
+  background: url("../../../../assets/barbFire.gif");
+  background-position: 600% 20%;
+}
+
+.options button:hover {
+  animation: crazy 3s ease-in-out infinite;
+  transform: scale(0.95);
+  box-shadow: 0 0 2vmin black
+}
+
+@keyframes crazy {
+  from {
+    background-position: 1000% 20%;
+  }
+  to {
+    background-position: 700% 20%;
+  }
+}
+.listStuff {
+  overflow: hidden;
+  max-height: 0 !important;
+  /* border: 3px solid gray; */
+}
+
+.arrows {
+  width: 86vw;
+  height: 70vh;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.up,
+.down {
+  border: 3vmin solid #754012b2;
+  box-shadow: 0 0 1vmin black;
+  width: 5vw;
+  height: 90vh;
+  z-index: 3;
+  border-radius: 250px;
+  /* transform: rotateY(180deg) rotateX(0deg) rotateZ(50deg); */
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(180deg) rotateX(70deg) rotateZ(50deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(90deg) rotateZ(50deg);
+  }
+  100% {
+    transform: rotateY(180deg) rotateX(70deg) rotateZ(50deg);
+  }
+}
+
+.goDown {
+  max-height: 100%;
+}
+
+.goUp {
+  max-height: 0%;
+}
+
+.dropDownCurrency {
+  position: absolute;
+  width: 26.5vmin;
+  right: 16.5vmin;
+  height: auto;
+  background-color: gray;
+  top: 12%;
+  box-shadow: inset 0 0 1vmin black;
+  z-index: 2;
+  overflow: hidden;
+  background: linear-gradient(
+    125deg,
+    #1a0e04b2 15%,
+    #df8230b2 80%,
+    #1a0e04b2 90%
+  );
+}
+
+.currency {
+  padding: 3vmin 2vmin;
+  border-bottom: 3px ridge #610e0560;
+  font-size: 3vmin;
+  gap: 1.5vmin;
+}
+
+.currency:hover {
+  background-color: #9277173b;
+}
+
+.currency:last-child {
+  border-bottom: initial;
+}
+
+.currency p:first-child {
+  color: #130b00dc;
+  font-weight: bold;
+  letter-spacing: 0.1vw;
+  text-shadow: 0 0 1vmin gray;
+  font-size: 4vmin;
+}
+
+.currency p:last-child {
+  color: #c9a72d;
+  text-shadow: 0 0 1vmin black;
+}

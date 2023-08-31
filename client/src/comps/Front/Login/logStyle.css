@@ -1,0 +1,92 @@
+.inputsArea {
+  width: 65%;
+  gap: 7vmin;
+  background: linear-gradient(#402c18b5, #402c18b5, #000000b5);
+  flex-direction: column;
+  z-index: 2;
+  box-shadow: 0 0 1vmin black;
+}
+
+.inputsArea button {
+  background: linear-gradient(to bottom, #ebdeb0, #9b600f, #9e1b14);
+  box-shadow: 0 0 2vmin black;
+  font-size: 3.5vmin;
+  width: 20vw;
+  padding: 2vmin;
+  border: 3px solid #a37028;
+  background-position: 0 0, 0 0, 0 0;
+  background-size: 300% 300%;
+  animation: gradientMovement 10s infinite;
+  text-transform: uppercase;
+  letter-spacing: 0.2vw;
+  font-weight: bolder;
+}
+
+.movingCharacters {
+  width: 35%;
+  background: linear-gradient(#b92c092f, #ff950031, #9e1b1436);
+  /* transform: scale(); */
+  background-position: 0 0, 0 0, 0 0;
+  background-size: 1000% 1000%;
+  box-shadow: 0 0 1vmin black;
+  animation: gradientMovement 1s ease-in-out infinite;
+}
+
+.movingCharacters img {
+  filter: drop-shadow(0 0 1vmin rgb(199, 48, 48));
+  transform: scale(1.8);
+}
+
+.eye {
+  right: 12%;
+}
+
+.eye svg {
+  font-size: 4vmin !important;
+  transition: all, .5s;
+}
+
+.eye svg:hover {
+  color: #dfa452 !important;
+}
+
+.oneInput {
+  justify-content: space-evenly;
+}
+
+.oneInput svg {
+  color: #a37028;
+  font-size: 6vmin;
+  filter: drop-shadow(0 0 1vmin black);
+}
+
+@media screen and (max-width: 900px) {
+  .loginForm {
+    flex-direction: column;
+  }
+  .inputsArea,
+  .movingCharacters {
+    width: 100% !important;
+    height: 100%;
+  }
+
+  .inputsArea,
+  .topPart {
+    z-index: 2;
+    position: relative;
+  }
+  .movingCharacters {
+    position: absolute;
+    z-index: 1;
+    align-items: start;
+  }
+  .oneInput input {
+    width: 65%;
+  }
+  .topPart button {
+    width: 40%;
+  }
+  .inputsArea button {
+    width: 60%;
+  }
+}

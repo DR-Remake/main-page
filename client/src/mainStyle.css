@@ -5,13 +5,17 @@
 }
 
 body {
-  background: gray;
   overflow: hidden;
   font-family: "Acme";
+  scrollbar-color: #a78a23 rgb(85, 45, 12) !important;
+  -webkit-scrollbar-color: #754a27 rgb(85, 45, 12) !important;
 }
 
 #drr {
   height: 100vh;
+}
+.f1 {
+  flex: 1;
 }
 
 .flex {
@@ -28,6 +32,21 @@ body {
 
 .combineH {
   height: 100%;
+}
+
+.gone,
+.showUp {
+  z-index: 2;
+}
+
+.gone {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.showUp {
+  transform: scale(1) !important;
+  opacity: 1 !important;
 }
 
 .jcac {
@@ -51,10 +70,82 @@ body {
   cursor: pointer;
 }
 
+.bgImage {
+  background-repeat: no-repeat !important;
+  background-size: 100% 100%;
+}
+
 .gradientText {
+  background-clip: text;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
 }
+
+/* vvvvvvvv TEMP UNTIL WE SET UP A CLOUD-SERVICE. vvvvvvvv */
+.Berserker {
+  background-image: url("./assets/Characters/BerserkerIMAGE.png");
+}
+
+.Ranger {
+  background-image: url("./assets/Characters/DR-RangerCard.png");
+}
+
+.Sorcerer {
+  background-image: url("./assets/Characters/DR-SorcererCard.png");
+}
+
+.Cheff {
+  background-image: url("./assets/Characters/DR-BattleChefCard.png");
+}
+
+.common_chest {
+  background-image: url("./assets/firstSet/Common_chest.png");
+}
+
+.uncommon_chest {
+  background-image: url("./assets/firstSet/Uncommon_chest_.png");
+}
+
+.rare_chest {
+  background-image: url("./assets/firstSet/Rare_chest_.png");
+}
+
+.legendary_chest {
+  background-image: url("./assets/firstSet/Legendary_chest_.png");
+}
+
+.common_key {
+  background-image: url("./assets/firstSet/Common_key.png");
+}
+
+.uncommon_key {
+  background-image: url("./assets/firstSet/Uncommon_key_.png");
+}
+
+.rare_key {
+  background-image: url("./assets/firstSet/Rare_key_.png");
+}
+
+.legendary_key {
+  background-image: url("./assets/firstSet/Legendary_key_.png");
+}
+
+.red_dragon {
+  background-image: url("./assets/firstSet/redDragonPet.png");
+}
+
+.bunny {
+  background-image: url("./assets/firstSet/bunnyPet.png");
+}
+
+.rhino {
+  background-image: url("./assets/firstSet/rhinoPet.png");
+}
+
+.blue_wolf {
+  background-image: url("./assets/firstSet/blueWolfPet.png");
+}
+/* ^^^^^^^^ TEMP UNTIL WE SET UP A CLOUD-SERVICE. ^^^^^^^^ */
 
 @keyframes gradientMovement {
   0% {
@@ -72,4 +163,72 @@ body {
   100% {
     background-position: 0 0, 0 0, 0 0;
   }
+}
+
+.open {
+  max-width: 100%;
+  opacity: 1;
+  position: initial;
+}
+
+.close {
+  filter: drop-shadow(0 0 5vmin yellow);
+  position: absolute;
+  bottom: 0;
+  max-width: 0;
+  opacity: 0;
+}
+
+/* 
+.lClose {
+  max-width: 0;
+} */
+
+.dn {
+  display: none;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.hClose {
+  overflow: hidden;
+  transform: scale(0) !important;
+  border-bottom: initial !important;
+  background: initial !important;
+  opacity: 0;
+}
+
+.openH {
+  max-height: 100%;
+}
+
+.closeH {
+  /* max-height: 5vh; */
+  transform: scale(0) !important;
+}
+
+.slideLeft {
+  left: 0;
+}
+.slideRight {
+  left: 65%;
+}
+
+.openTop {
+  transform: translateY(0);
+}
+
+.closeBottom {
+  transform: translateY(100%);
+}
+
+.gray {
+  color: rgba(128, 128, 128, 0.808) !important;
+  text-shadow: 0 0 1vmin black;
+}
+
+.bold {
+  font-weight: bolder;
 }

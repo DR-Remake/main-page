@@ -1,0 +1,204 @@
+@use "../../../../Dialogs/CardDisplayer/CardDisplayer.scss";
+@use "../../../../Admin/AdminHome/Graphs/Graphs.scss";
+
+.currentMessages {
+  justify-content: space-evenly;
+  padding: 2vmin;
+  .settingsArea {
+    width: 30%;
+    @include CardDisplayer.shadow;
+
+    background-size: 100% 100%;
+    section {
+      flex-direction: column;
+      .title {
+        filter: drop-shadow(0 0 1vmin black);
+        height: 12vh;
+        letter-spacing: 0.2vw;
+        @include Graphs.color(#b68d07);
+        text-shadow: 0 0 1vmin black;
+      }
+      .wall {
+        height: 32vh;
+        margin-top: 12vh;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .controller,
+      .searcher {
+        width: 80%;
+        margin: auto;
+        filter: drop-shadow(0 0 1vmin black);
+        box-shadow: inset 0 0 2vmin lightblue;
+        padding: 3vmin;
+        gap: 1vmin;
+        justify-content: space-between;
+        p {
+          @include CardDisplayer.font(5vmin);
+          @include Graphs.color(#b68d07);
+          filter: drop-shadow(0 0 1vmin black);
+        }
+        .rest {
+          .group {
+            gap: 2vmin;
+            @include Graphs.color(#b68d07);
+            flex-direction: column;
+            h3 {
+              @include CardDisplayer.font(2.5vmin);
+            }
+          }
+          .middle {
+            padding: 1vmin;
+            height: 7vh;
+            margin: 0 2vmin;
+            box-shadow: inset 0 0 6vmin black;
+            justify-content: flex-start;
+            p {
+              width: 25%;
+              height: 60%;
+              margin: 1vmin;
+              background-color: rgba(128, 128, 128, 0.514);
+            }
+          }
+        }
+
+        input {
+          width: 85%;
+          @include Graphs.color(#e45d0f);
+          @include CardDisplayer.font(2.5vmin);
+          text-shadow: 0 0 1vmin black;
+          @include CardDisplayer.input(#b68d07);
+          padding-bottom: 1vmin;
+          &:focus-within {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .dataArea {
+    @include CardDisplayer.shadow;
+
+    width: 70%;
+    overflow-y: auto;
+    padding: 2vmin;
+
+    .messageArea {
+      padding: 2vmin;
+      flex-direction: column;
+      gap: 3vmin;
+      h4 {
+        margin: auto;
+        @include CardDisplayer.font(4.4vmin);
+        @include Graphs.color(#d6ab1c);
+        text-shadow: 0 0 1vmin black;
+        span {
+          padding: 2vmin;
+        }
+      }
+      .generalDesc {
+        @include CardDisplayer.shadow();
+        padding: 3vmin;
+        gap: 2vmin;
+        flex-direction: column;
+        justify-content: flex-start;
+        @include CardDisplayer.font(2.4vmin);
+        line-height: 2.3;
+        align-items: start;
+        border-radius: 0 0 15px 15px;
+        h2 {
+          padding: 1vmin;
+        }
+        p {
+          padding: 0 2.5vmin;
+        }
+        .areaData {
+          border-top-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+          width: fit-content;
+          padding: 1vmin;
+          .value {
+            padding: 0 2vmin;
+            img {
+              width: 75%;
+              margin: auto;
+            }
+          }
+          &:last-child {
+            align-items: center;
+          }
+          &:nth-child(odd) {
+            border-left: 3px solid rgba(241, 205, 58, 0.534);
+            @include Graphs.color(#00294a);
+            background-color: #938f7c4b;
+            @include CardDisplayer.shadow(rgb(39, 20, 5));
+            text-shadow: 0 0 1vmin rgb(129, 129, 129);
+          }
+          &:nth-child(even) {
+            border-left: 3px solid #00b5fd60;
+            @include Graphs.color(#b18d17);
+            background-color: #42370d4b;
+            text-shadow: 0 0 1vmin black;
+            @include CardDisplayer.shadow(rgba(0, 0, 0, 0.829));
+          }
+          &:hover {
+            transform: scale(0.97);
+            box-shadow: 0 0 1vmin rgba(255, 255, 255, 0.514);
+          }
+        }
+      }
+    }
+  }
+}
+
+.areaBorderBlue {
+  border-top: 0.8vmin solid #b68d07;
+  background-color: #06263391;
+}
+
+.areaBorderPurple {
+  border-top: 0.8vmin solid #8082ff;
+  background-color: #2d2d66a4;
+}
+
+.bgBlue {
+  background: linear-gradient(-120deg, #243e3f99, #077fa696, #70cae796);
+}
+
+.bgPurple {
+  background: linear-gradient(-120deg, #2d2d66a4, #6969eaa4, #8082ff);
+}
+
+.rotate {
+  transform: rotate(-3.5deg);
+}
+
+.normal {
+  transform: rotate(0);
+}
+
+.blue {
+  background-color: #2d8fb6b9 !important;
+}
+
+.blueShadow {
+  box-shadow: inset 0 0 6vmin lightblue !important;
+}
+
+.purple {
+  background-color: #6969eaa4 !important;
+}
+
+.purpleShadow {
+  box-shadow: inset 0 0 6vmin #8082ff !important;
+}
+
+.blueGate {
+  background: url("/src/assets/gates/WallDRR.png"),
+    linear-gradient(#102e3a, #0a1718 80%, rgb(156, 160, 149));
+}
+
+.purpleGate {
+  background: url("/src/assets/gates/gatePurple.png"),
+    linear-gradient(#262774, #46454d 80%, rgb(70, 53, 45));
+}

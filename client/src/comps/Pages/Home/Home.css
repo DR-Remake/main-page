@@ -1,3 +1,7 @@
+.Home {
+  user-select: none;
+}
+
 .videoContainer {
   position: absolute;
   left: 0;
@@ -19,6 +23,7 @@ video {
 }
 
 .mainCenter {
+  pointer-events: none;
   justify-content: space-around;
 }
 
@@ -84,10 +89,11 @@ video {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   outline: 2.55em solid #d88310;
+  pointer-events: all;
   background: linear-gradient(to top, rgb(85, 45, 12), rgba(111, 50, 0, 0.67));
 }
 
-.navBar p {
+.navBar a {
   width: 100%;
   text-align: center;
   padding: 2vmin;
@@ -97,15 +103,22 @@ video {
   z-index: 1;
   cursor: pointer;
   text-transform: uppercase;
+  text-decoration: none;
+  filter: drop-shadow(0 0 1vmin black);
+}
+
+.navBar a:not(:first-child):not(:last-child) {
+  cursor: default;
 }
 
 .text {
   background: linear-gradient(#f1cd4a, #e40e03);
 }
 
-.navBar p:hover {
+.navBar a:hover {
   background: #f15044;
   border-radius: 50%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -126,7 +139,6 @@ video {
   letter-spacing: 0.04em;
   font-weight: 600;
   margin-top: 1vh;
-
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
   border: 1em solid #cb7600d9;
@@ -138,7 +150,10 @@ video {
   border-image: linear-gradient(to bottom, #e48c11, rgba(0, 0, 0, 0)) 1 100%;
 }
 
-.some p, .square .topPart p, .topPart button  {
+.some p,
+.square .topPart p,
+.topPart button,
+.myName button {
   font-size: 4.5vmin;
   animation: gradientMovement 5s infinite;
   background: linear-gradient(to bottom, #f1cd4a, #4e3511, #ff6057);
@@ -150,6 +165,7 @@ video {
 .some img {
   animation: boop 2s ease 1;
   height: 45vh;
+  filter: drop-shadow(0 0 1vmin black);
 }
 
 @keyframes boop {
@@ -169,9 +185,9 @@ video {
   }
 }
 
-.itemMoving img {
+.itemMoving p {
   width: 20vmin;
-  height: auto;
+  height: 20vmin;
   animation: upDown 3s linear infinite;
 }
 
@@ -188,7 +204,7 @@ video {
   opacity: 0;
 }
 
-.navBar p img {
+.navBar a img {
   width: 100%;
 }
 

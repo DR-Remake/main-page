@@ -1,0 +1,49 @@
+@use "../../Dialogs/CardDisplayer/CardDisplayer.scss";
+@use "../../Admin/AdminHome/Graphs/Graphs.scss";
+
+.areYouSure {
+  overflow: hidden;
+  width: 30%;
+  top: 0;
+  z-index: 3;
+  flex-direction: column;
+  background-color: rgba(48, 35, 22, 0.9);
+  justify-content: space-evenly;
+  @include CardDisplayer.shadow;
+  .icon {
+    @include CardDisplayer.font(7.6vmin);
+    padding: 2vmin;
+    gap: 4vmin;
+  }
+  h2 {
+    @include Graphs.color;
+    text-shadow: 0 0 1vmin black;
+    @include CardDisplayer.font(3.6vmin);
+  }
+  p {
+    padding: 0 2vmin;
+    @include Graphs.color(#d8b32e9a);
+    line-height: 7vmin;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 0 1vmin black;
+    @include CardDisplayer.font(2.6vmin);
+    background-color: #c9b4681e;
+    span {
+      width: 100%;
+    }
+  }
+  button {
+    @include CardDisplayer.font(2.6vmin !important);
+    @include CardDisplayer.input(orange);
+    padding: 2vmin;
+    width: 80%;
+    color: green;
+    &:last-child {
+      color: red;
+    }
+    &:hover {
+      background-color: #a88b2342 !important;
+    }
+  }
+}

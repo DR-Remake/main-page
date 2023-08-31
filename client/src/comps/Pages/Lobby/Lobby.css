@@ -1,0 +1,30 @@
+.Dashboard {
+  flex-direction: column;
+}
+
+.wallDRR {
+  box-shadow: 0 0 1vmin black;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.68),
+    rgba(48, 35, 22, 0.692)
+  );
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-size: auto;
+  animation: gradientMovement 5s infinite;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+.parent {
+  z-index: 1;
+  width: 95%;
+  justify-content: center;
+  box-shadow: 0 0 1vmin black;
+  background: linear-gradient(45deg, #32261bcc, #463627e8, #865324cc);
+}
+
+.sideContent {
+  padding: 2vmin 0;
+  height: 90%;
+}

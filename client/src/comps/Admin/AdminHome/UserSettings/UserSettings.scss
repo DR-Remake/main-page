@@ -1,0 +1,193 @@
+@use "../Graphs/Graphs.scss";
+@use "../../../Dialogs/CardDisplayer/CardDisplayer.scss";
+
+@mixin cool($zDegs, $zDegs2) {
+  animation: 5s ease-in-out cool infinite;
+  @keyframes cool {
+    //-10 -7
+    0% {
+      transform: rotateZ($zDegs) scale(1);
+    }
+    50% {
+      transform: rotateZ($zDegs2) scale(0.95);
+    }
+    100% {
+      transform: rotateZ($zDegs) scale(1);
+    }
+  }
+}
+
+.userSettings {
+  flex-direction: column;
+  @include Graphs.dFlex(space-evenly);
+  @include CardDisplayer.font(3vmin);
+  @include Graphs.color(rgb(180, 127, 28));
+  text-shadow: 0 0 1vmin black;
+  .openDialog {
+    z-index: 3;
+  }
+  .tContainer {
+    background-color: #1c170fab;
+    height: 15%;
+    input {
+      font-size: 3vmin;
+      text-align: center;
+    }
+  }
+  .title {
+    text-align: center;
+    box-shadow: inset 0 -2vmin 4.5vmin rgb(156, 104, 0);
+  }
+  .sections {
+    height: 85%;
+    .admin,
+    .user {
+      width: 50%;
+      .part {
+        box-shadow: 0 0 1vmin black;
+        flex-direction: column;
+
+        .protect {
+          padding: 1vmin;
+          bottom: 0;
+          overflow: hidden;
+          text-align: center;
+          justify-content: space-around;
+          background-color: rgba(21, 15, 9, 0.89);
+          z-index: 3;
+          color: #8b540b;
+          flex-direction: column;
+          .icon {
+            @include CardDisplayer.font(2.5vmin);
+          }
+          p {
+            width: 90%;
+          }
+          button {
+            text-transform: uppercase;
+            @include Graphs.color(#e7bf89);
+            @include CardDisplayer.font(3vmin);
+            @include CardDisplayer.input(orange);
+          }
+        }
+        .top {
+          z-index: 2;
+          background: linear-gradient(
+            -145deg,
+            #5c3b1a 50%,
+            rgba(48, 35, 22, 0.9) 40%
+          );
+          @include CardDisplayer.spaceBetween;
+          padding: 0 3vmin;
+          .subTitle {
+            width: 50%;
+            @include Graphs.color(#aa6914);
+            @include CardDisplayer.font(3vmin);
+            // box-shadow: 0 0 1vmin black;
+            padding: 2vmin;
+            &:first-child {
+              justify-content: flex-start;
+            }
+            &:last-child {
+              justify-content: flex-end;
+            }
+          }
+        }
+        .topList {
+          flex-direction: column;
+          overflow-y: auto;
+          overflow-x: hidden;
+          justify-content: start;
+          padding-bottom: 5.4vmin;
+          .pendingAdmins {
+            padding: 2vmin;
+            flex-direction: column;
+            opacity: 0.6;
+            filter: grayscale(4);
+            border: 3px dashed gray;
+            // div {
+            //   justify-content: space-between;
+            // }
+            // h3 {
+            //   text-align: start;
+            // }
+          }
+        }
+        .bothInp {
+          padding-left: 1vmin;
+          height: 10vh;
+          overflow: hidden;
+          // flex-direction: column;
+        }
+
+        .add {
+          @include CardDisplayer.spaceBetween;
+        }
+        .list {
+          justify-content: space-between;
+          box-shadow: inset 0 1vmin 1vmin #694c2c;
+          padding: 1vmin;
+          border-bottom: 3px solid rgb(133, 99, 33);
+          &:nth-child(even) {
+            background-color: rgba(99, 72, 19, 0.281);
+          }
+          &:nth-child(odd) {
+            background-color: #3d2e1ea9;
+          }
+          .icon {
+            margin: auto;
+            text-align: end;
+            &:hover {
+              background-color: rgba(247, 165, 0, 0.281);
+            }
+          }
+          p {
+            padding: 2vmin;
+          }
+        }
+      }
+    }
+
+    .user .topList .pendingAdmins {
+      display: none;
+    }
+    // .admin .part {
+    //   @include cool(10deg, 3deg)
+    // }
+    // .user .part {
+    //   @include cool(-10deg, -3deg)
+    // }
+    // .admin .part .list:hover {
+    //   transform: rotate(-1deg);
+    // }
+    // .user .part .list:hover {
+    //   transform: rotate(1deg);
+    // }
+  }
+}
+.inpContainer {
+  height: 10vh;
+  p {
+    margin: auto;
+  }
+  // align-items: center;
+  // justify-content: space-between;
+  input {
+    padding: 2vmin;
+    height: 70%;
+    @include Graphs.color(rgba(177, 93, 9, 0.9));
+    text-shadow: 0 0 1vmin black;
+    @include CardDisplayer.input(orange);
+    @include CardDisplayer.font(2.4vmin);
+    p {
+      width: 20%;
+    }
+    &:focus-within {
+      outline: initial;
+    }
+  }
+}
+
+.title input {
+  border: initial !important;
+}

@@ -1,0 +1,68 @@
+.Dashboard {
+  background-image: url("../../../../assets/backgrounds/dashboardBG.jpg");
+  background-size: 100% 100%;
+  padding: 2vmin;
+}
+
+.topNavDashboard {
+  height: 10vh;
+}
+
+.topNavDashboard p,
+.topNavDashboard img,
+.topNavDashboard a {
+  width: 10vw;
+  height: 50%;
+  padding: 1vmin;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 1vmin black;
+  border-bottom: 1.5vmin solid #693e15a1;
+  background: linear-gradient(
+    120deg,
+    rgba(70, 61, 49, 0.678),
+    rgba(48, 35, 22, 0.692)
+  );
+  animation: gradientMovement 5s infinite;
+  background-position: 0 0, 0 0, 0 0;
+  background-size: 300% 300%;
+  border-radius: 15px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topNavDashboard a:last-child{
+  font-size: 3.5vmin;
+  gap: 1vmin;
+  text-shadow: 0 0 1vmin black;
+  color: rgb(182, 25, 25);
+  text-decoration: none;
+}
+
+.topNavDashboard img:first-child,
+.topNavDashboard a:last-child {
+  height: 85%;
+}
+
+.topNavDashboard p:nth-child(3) {
+  font-size: 4vmin;
+  flex: 1;
+  letter-spacing: 0.1vw;
+  color: #a07334;
+  text-align: center;
+  height: 100%;
+}
+
+.topNavDashboard p {
+  text-align: initial;
+  color: rgb(224, 138, 67);
+  text-shadow: 0 0 1vmin black;
+}
+
+.topNavDashboard span {
+  text-align: center;
+  font-size: 2.5vmin;
+  padding: 2vmin;
+}

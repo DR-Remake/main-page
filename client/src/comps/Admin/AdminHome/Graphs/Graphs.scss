@@ -1,0 +1,86 @@
+@use "../../../Dialogs/CardDisplayer/CardDisplayer.scss";
+
+@mixin dFlex($jContent) {
+  display: flex !important;
+  justify-content: $jContent !important;
+  align-items: center;
+}
+
+@mixin width($width: 50%) {
+  width: $width;
+}
+
+@mixin color($color: rgb(163, 81, 23)) {
+  color: $color;
+}
+
+.Graph {
+  flex-direction: column;
+  overflow-y: auto;
+  .onlinePeople {
+    box-shadow: 0 0 1vmin black;
+    gap: 3vmin;
+    .status {
+      width: 5%;
+      @include dFlex(space-evenly);
+    }
+    svg {
+      @include CardDisplayer.font(3vmin);
+      animation: flicker 2s linear infinite;
+      filter: drop-shadow(0 0 1vmin black);
+    }
+    svg,
+    p {
+      color: rgba(43, 155, 43, 0.815);
+      @include CardDisplayer.font(3.5vmin);
+    }
+    .title {
+      border-left: 3px solid rgba(245, 102, 0, 0.651);
+      padding-left: 2vmin;
+      @include color(rgb(168, 105, 60));
+    }
+    @keyframes flicker {
+      0% {
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+.all {
+  @include dFlex(space-evenly);
+  min-height: 75vh;
+  .generalPeople {
+    padding: 2vmin;
+    background: #211f1f40;
+    box-shadow: 0 0 7vmin black;
+    flex-direction: column;
+    .recharts-legend-item,
+    .recharts-default-legend {
+      @include dFlex(space-evenly);
+    }
+    .recharts-default-tooltip {
+      background-color: black !important;
+    }
+    .recharts-tooltip-label {
+      display: none;
+    }
+  }
+}
+.onlinePeople {
+  height: 30vh !important;
+}
+
+.generalPeople,
+.onlinePeople {
+  p {
+    text-shadow: 0 0 1vmin black;
+    @include color();
+    @include CardDisplayer.font(3vmin);
+  }
+}

@@ -1,0 +1,41 @@
+.loadingScreen {
+  background: linear-gradient(
+    to bottom,
+    rgba(44, 25, 9, 0.822),
+    rgba(255, 115, 0, 0)
+  );
+  height: 60%;
+  margin: auto;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+}
+
+.loadingScreen p {
+  font-size: 5.5vmin;
+  filter: drop-shadow(0 0 1vmin black);
+  letter-spacing: 0.3vw;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: linear-gradient(
+    to top,
+    rgb(252, 160, 85),
+    rgba(255, 115, 0, 0.67)
+  );
+}
+
+.effects {
+  filter: drop-shadow(0 0 1vmin red) opacity(.9);
+  animation: effects 1s linear infinite;
+}
+
+@keyframes effects {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1) rotateZ(360deg);
+  }
+}
