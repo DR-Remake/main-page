@@ -285,9 +285,10 @@ export default function Register({ excludeInputs = [] }) {
       try {
         const res = await postRequest(
           `${VITE_SERVER_PORT}/${VITE_USERS}/${VITE_USER_CHECKUSERNAME}`,
-          true,
-          { Username: theInputs[0].defaultValue }
+          { Username: theInputs[0].defaultValue },
+          false
         );
+        console.log(res);
         res.data.Username !== ""
           ? setChangeText(`I see, so it's you... ${res.data.Username}`)
           : setChangeText("Who is this brave soul that violated my peace?");
@@ -374,18 +375,18 @@ export default function Register({ excludeInputs = [] }) {
     try {
       const checkUsernameResponse = await postRequest(
         `${VITE_SERVER_PORT}/${VITE_USERS}/${VITE_USER_CHECKUSERNAME}`,
-        true,
         {
           Username: data.Username,
-        }
+        },
+        true
       );
       if (checkUsernameResponse.status === 200) {
         const postUserResponse = await postRequest(
           `${VITE_SERVER_PORT}/${VITE_USERS}/${VITE_USER_POSTUSER}`,
-          true,
           {
             data,
-          }
+          },
+          true
         );
         if (postUserResponse.status === 200) {
           Toaster("success", "Created user successfully.");

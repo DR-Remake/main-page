@@ -66,10 +66,10 @@ export default function Login() {
     };
     const url =
       currentPath === "/user/login"
-        ? `${VITE_SERVER_PORT}/${VITE_USERS}/${VITE_USER_LOGINUSER}}`
-        : `${VITE_SERVER_PORT}/${VITE_ADMIN}/${VITE_USER_LOGINADMIN}}`;
+        ? `${VITE_SERVER_PORT}/${VITE_USERS}/${VITE_USER_LOGINUSER}`
+        : `${VITE_SERVER_PORT}/${VITE_ADMIN}/${VITE_USER_LOGINADMIN}`;
     try {
-      const res = await postRequest(url, true, dataToSend);
+      const res = await postRequest(url, dataToSend, false);
       if (res) {
         Toaster("success", "Welcome back");
         currentPath === "/user/login"

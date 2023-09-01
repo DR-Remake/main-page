@@ -25,8 +25,8 @@ function Shop() {
   const [degs, setDegs] = useState(0);
   const buttons = useSelector((state) => state.shopTitle);
 
-  const [shouldMove, setShouldMove] = useState(true);
-
+  const [, setShouldMove] = useState(true);
+  
   const currencies = [
     {
       currency: <BsCurrencyDollar />,
@@ -233,7 +233,10 @@ function Shop() {
       >
         {currencies.map((currency, index) => {
           return (
-            <div key={index} className="currency combineW combineH flex jcac pointer trans">
+            <div
+              key={index}
+              className="currency combineW combineH flex jcac pointer trans"
+            >
               <p className="flex jcac">{currency.currency}</p>
               <p>{currency.desc}</p>
             </div>

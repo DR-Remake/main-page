@@ -48,10 +48,11 @@ function Lobby() {
 
   const [adminComps, setAdminComps] = useState([
     null,
+    // <Notes/>,
     <Graphs />,
     <UserSettings />,
     <SendNotifications />,
-    <SendMessages />,
+    // <PostCards />,
   ]);
 
   const IconMapper = [
@@ -86,6 +87,10 @@ function Lobby() {
       desc: "Home",
     },
     {
+      icon: <FaStickyNote />,
+      desc: "Notes",
+    },
+    {
       icon: <BsGraphUp />,
       desc: "Stats & Graphs",
     },
@@ -97,16 +102,11 @@ function Lobby() {
       icon: <AiOutlineSend />,
       desc: "Send notifications",
     },
-    {
-      icon: <FaStickyNote />,
-      desc: "Notes",
-    },
   ];
 
   const closeIt = (e) => {
     handleCloseDialog(e, "cover");
   };
-
   useEffect(() => {
     const checkUser = async (route, sndRoute) => {
       const token = getCookieValue("t");
